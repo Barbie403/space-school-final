@@ -6,9 +6,14 @@ import java.sql.SQLException;
 
 public final class DBConnection {
 
-    private static final String URL = "jdbc:mysql://localhost:3306/space_school";
-    private static final String USER = "root";
-    private static final String PASSWORD = "root"; // change as needed
+    private static final String URL =
+            "jdbc:mysql://localhost:3306/space_school";
+
+    private static final String USER =
+            System.getenv().getOrDefault("DB_USER", "root");
+
+    private static final String PASSWORD =
+            System.getenv().getOrDefault("DB_PASSWORD", "root");
 
     private DBConnection() {}
 
